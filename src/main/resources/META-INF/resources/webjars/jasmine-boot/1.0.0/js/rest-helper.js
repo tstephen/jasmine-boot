@@ -18,7 +18,7 @@
  * Make search params available as array
  */
 function getSearchParameters() {
-  var prmstr = window.location.search.substr(1);
+  var prmstr = (window['location'] == undefined ? '' : window.location.search.substr(1));
   return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
 }
 
