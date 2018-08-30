@@ -23,7 +23,7 @@
 
   <groupId>com.knowprocess.jasmine-boot</groupId>
   <artifactId>jasmine-boot</artifactId>
-  <version>1.0.0.20180827</version>
+  <version>1.0.0.20180830</version>
   <packaging>jar</packaging>
   
   <properties>

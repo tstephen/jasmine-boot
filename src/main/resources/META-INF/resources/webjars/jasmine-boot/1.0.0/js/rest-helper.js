@@ -60,12 +60,23 @@ function RestEntityHelper(userOptions) {
         if (xhr.status == 401 && me.options['auth'] != undefined) me.options.auth();
         try {
           if (options['success']!=undefined && typeof options['success'] == 'function') {
-            try {
-              xhr.response = JSON.parse(xhr.responseText);
-              options['success'](xhr.response, xhr.status, xhr);
-              //console.log('  able to parse response to JSON');
-            } catch (e) {
+            switch (options['contentType']) {
+            case 'application/xml':
+              options['success'](xhr.responseXML, xhr.status, xhr);
+              break;
+            case 'text/html':
+            case 'text/plain':
               options['success'](xhr.responseText, xhr.status, xhr);
+              break;
+            default:
+              try {
+                xhr.response = JSON.parse(xhr.responseText);
+                options['success'](xhr.response, xhr.status, xhr);
+                //console.log('  able to parse response to JSON');
+              } catch (e) {
+                console.log('Unable to parse JSON from response, send text');
+                options['success'](xhr.responseText, xhr.status, xhr);
+              }
             }
           }
           if (options['complete']!=undefined && typeof options['complete'] == 'function') {
