@@ -83,8 +83,8 @@ public class SmokeTest {
     }
 
     private void loadPolyfills(StringBuilder sb) {
-        sb.append("load(\"classpath:META-INF/resources/webjars/jasmine-boot/1.0.0/js/timer-polyfill.js\");\n");
-        sb.append("load(\"classpath:META-INF/resources/webjars/jasmine-boot/1.0.0/js/xml-http-request-polyfill.js\");\n");
+        sb.append("load(\"classpath:META-INF/resources/webjars/jasmine-boot/1.1.0/js/timer-polyfill.js\");\n");
+        sb.append("load(\"classpath:META-INF/resources/webjars/jasmine-boot/1.1.0/js/xml-http-request-polyfill.js\");\n");
     }
 
     private StringBuilder createScript(String... scripts) {
@@ -93,7 +93,7 @@ public class SmokeTest {
 
         loadPolyfills(sb);
         loadJasmine(sb);
-        sb.append(String.format("load(\"%1$s\");", "classpath:META-INF/resources/webjars/jasmine-boot/1.0.0/js/json-reporter.js"));
+        sb.append(String.format("load(\"%1$s\");", "classpath:META-INF/resources/webjars/jasmine-boot/1.1.0/js/json-reporter.js"));
 
         for (String script : scripts) {
             sb.append(String.format("load(\"%1$s\");", script));

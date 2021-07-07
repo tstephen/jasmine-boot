@@ -23,7 +23,7 @@
 
   <groupId>com.knowprocess.jasmine-boot</groupId>
   <artifactId>jasmine-boot</artifactId>
-  <version>1.0.0.20181021</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -64,24 +64,5 @@
       <version>${jasmine.version}</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <failIfNoTests>false</failIfNoTests>
-          <trimStackTrace>false</trimStackTrace>
-          <redirectTestOutputToFile>true</redirectTestOutputToFile>
-          <excludes>
-            <exclude>**/*TestCase.java</exclude>
-          </excludes>
-          <runOrder>alphabetical</runOrder>
-          <!-- See: https://issues.apache.org/jira/browse/SUREFIRE-1588 -->
-          <useSystemClassLoader>false</useSystemClassLoader>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
